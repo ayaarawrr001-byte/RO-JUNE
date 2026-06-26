@@ -1410,13 +1410,14 @@
             background: linear-gradient(135deg, var(--soft-cloud-blue) 0%, var(--card-bg-tint) 100%);
             border: var(--border-width) solid var(--border-strong);
             border-radius: 15px;
-            padding: 14px;
+            padding: 16px;
             text-align: left;
             box-shadow: 0 10px 22px var(--card-shadow);
             transition: transform 0.28s ease;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            gap: 10px;
             height: 100%;
             min-height: 0;
             overflow: hidden;
@@ -1437,6 +1438,7 @@
             min-height: 3.4em;
             display: flex;
             align-items: center;
+            justify-content: flex-start;
         }
 
         .card-content {
@@ -1444,10 +1446,22 @@
             color: var(--dark-outline);
             line-height: 1.6;
             flex: 1;
-            text-align: justify;
+            text-align: left;
             word-wrap: break-word;
             overflow-wrap: break-word;
             white-space: normal;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .card-content > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-content p,
+        .card-content blockquote {
+            margin: 0;
         }
 
         .description-card .card-content {
