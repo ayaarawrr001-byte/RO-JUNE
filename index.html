@@ -452,9 +452,10 @@
 
         /* Screen Overlay */
         .screen-overlay {
-            position: relative;
-            inset: auto;
-            background: transparent;
+            position: fixed;
+            inset: 0;
+            background: url('https://raw.githubusercontent.com/wangja363-design/ro-juni/e388199f58453ecd66b9ba7e0ab934f9dcf9e990/mini%20game%20(2).png') center/cover no-repeat;
+            background-color: var(--soft-cloud-blue);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -471,13 +472,6 @@
 
         .hidden {
             display: none !important;
-        }
-
-        .screen-overlay > .content-card {
-            position: relative;
-            z-index: 101;
-            width: min(100%, 1200px);
-            margin: auto;
         }
 
         .content-card {
@@ -1332,9 +1326,6 @@
             border: 1px solid var(--border-blue) !important;
             border-radius: 12px !important;
             line-height: 1.4 !important;
-            white-space: normal !important;
-            word-break: break-word !important;
-            overflow-wrap: anywhere !important;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
         }
 
@@ -1391,7 +1382,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            overflow: hidden;
+            overflow: auto;
             -webkit-overflow-scrolling: touch;
         }
 
@@ -1406,35 +1397,29 @@
 
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            grid-auto-rows: 1fr;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-auto-rows: minmax(0, 1fr);
             gap: 12px;
             width: 100%;
             flex: 1;
             min-height: 0;
             align-items: stretch;
-            height: 100%;
-            overflow: hidden;
         }
 
         .card {
             background: linear-gradient(135deg, var(--soft-cloud-blue) 0%, var(--card-bg-tint) 100%);
             border: var(--border-width) solid var(--border-strong);
             border-radius: 15px;
-            padding: 16px;
+            padding: 14px;
             text-align: left;
             box-shadow: 0 10px 22px var(--card-shadow);
             transition: transform 0.28s ease;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            gap: 12px;
             height: 100%;
             min-height: 0;
-            min-width: 0;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            white-space: normal;
+            overflow: hidden;
         }
 
         .card:hover {
@@ -1442,73 +1427,42 @@
         }
 
         .card-title {
-            font-weight: 600;
-            font-size: 12px;
+            font-weight: 400;
+            font-size: 10px;
             color: var(--dark-outline);
-            margin: 0;
+            margin-bottom: 8px;
             letter-spacing: 0.08em;
-            min-height: 0;
-            padding-bottom: 8px;
+            min-height: 3.4em;
             display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            white-space: normal;
-            line-height: 1.3;
+            align-items: flex-start;
         }
 
         .card-content {
-            font-size: 11px;
-            color: var(--dark-outline);
-            line-height: 1.6;
-            flex: 1 1 auto;
-            min-height: 0;
-            text-align: left;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            white-space: normal;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            overflow: auto;
-        }
-
-        .card-content > * {
-            margin: 0;
-        }
-
-        .card-content p {
-            margin: 0;
-            font-size: 10.8px;
-            font-weight: 400;
-            text-align: justify;
-            line-height: 1.5;
-            white-space: normal;
-            word-break: break-word;
-            overflow-wrap: anywhere;
-        }
-
-        .card-content blockquote {
-            margin: 0;
             font-size: 10px;
-            line-height: 1.5;
             color: var(--dark-outline);
-            white-space: normal;
-            word-break: break-word;
-            overflow-wrap: anywhere;
+            line-height: 1.4;
+            flex: 1;
+            text-align: justify;
         }
 
         .description-card .card-content {
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-right: 0;
             flex: 1 1 auto;
             min-height: 0;
-            overflow: auto;
+        }
+
+        .description-card .card-content::-webkit-scrollbar {
+            display: none;
         }
 
         .question-card {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             height: 100%;
             min-height: 0;
         }
@@ -1519,35 +1473,39 @@
             flex: 1 1 auto;
             width: 100%;
             min-height: 0;
-            overflow: hidden;
+            max-height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
             padding-right: 0;
             gap: 12px;
             margin-top: 6px;
         }
 
+        .question-scroll-area::-webkit-scrollbar {
+            display: none;
+        }
+
         .question-card .card-content {
-            flex: 1 1 auto;
+            overflow: visible;
+            flex: 0 0 auto;
             min-height: 0;
-            padding: 0;
+            padding-right: 0;
+            margin: 0;
             width: 100%;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            white-space: normal;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            overflow: auto;
         }
 
         .question-card .card-content img {
             width: 100%;
             max-width: 100%;
             height: auto;
-            max-height: 140px;
+            max-height: 220px;
             object-fit: contain;
             display: block;
             border-radius: 14px;
-            margin: 0 auto;
+            margin: 0 auto 12px auto;
         }
 
         .question-card .quiz-options {
@@ -1569,15 +1527,22 @@
             line-height: 1.4;
             font-size: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            white-space: normal;
-            word-break: break-word;
         }
 
         .question-card .quiz-options button:hover,
         #quiz-cards-overlay .quiz-opt-btn:hover {
             border-color: var(--border-strong);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-auto-rows: minmax(0, 1fr);
+            gap: 12px;
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+            align-items: stretch;
         }
 
         .cards-container .card {
@@ -1602,8 +1567,8 @@
             #quiz-cards-overlay .card {
                 width: 100% !important;
                 min-width: 0 !important;
-                height: 100% !important;
-                min-height: 0 !important;
+                height: auto !important;
+                min-height: auto !important;
                 overflow: visible !important;
                 margin-bottom: 0;
             }
@@ -1701,9 +1666,6 @@
             cursor: pointer;
             font-size: 10px;
             text-align: left;
-            white-space: normal;
-            word-break: break-word;
-            overflow-wrap: anywhere;
             box-shadow: 0 4px 12px rgba(93,140,210,0.06);
         }
 
@@ -4692,12 +4654,12 @@
                 return;
             }
 
-            let desc1HTML = '';
-            let desc2HTML = '';
+            let desc1HTML = `Musik tradisional ${cityData[state.idx].name} memiliki ciri khas yang unik dan kaya akan sejarah budaya Indonesia.`;
+            let desc2HTML = `Tantangan musik ini akan menguji pengetahuan Anda tentang alat musik dan genre musik dari ${cityData[state.idx].name}.`;
             let card3Title = 'Soal 1';
             let card4Title = 'Soal 2';
-            let card3HTML = '';
-            let card4HTML = '';
+            let card3HTML = quiz1.q;
+            let card4HTML = quiz2.q;
             let card3Options = quiz1.a;
             let card3Correct = quiz1.correct;
             let card4Options = quiz2.a;
@@ -4706,30 +4668,34 @@
             if (state.idx === 1) {
                 document.querySelector('#card-1 .card-title').innerText = 'Angklung';
                 desc1HTML = `
-                    <p>Angklung adalah alat musik bambu yang digoyang untuk membuat tabung bambu bergetar dan menghasilkan bunyi. Getaran ini memicu resonansi udara di dalam tabung dan menghasilkan nada sesuai ukuran tabung. Angklung menunjukkan prinsip gelombang bunyi dan resonansi. Suaranya bisa sedang hingga keras saat dimainkan dalam ansambel.</p>
+                    <img src="https://raw.githubusercontent.com/yursunrise25-coder/MEDIAAROV1/6d5c189745d78f0d32c2c021fd16b4d4d02b77b3/B.1%20ANGKLUNG%20(1).png" alt="Angklung" style="width: 100%; border-radius: 12px; margin-bottom: 12px;">
+                    <p>Angklung adalah alat musik bambu yang dimainkan dengan cara diguncang sehingga tabung-tabungnya bergetar dan menghasilkan bunyi. Getaran bambu memicu resonansi kolom udara di dalam tabung, menghasilkan frekuensi tertentu (±200–2.000 Hz) sesuai ukuran tabung. Secara fisika, angklung menunjukkan konsep gelombang bunyi, resonansi, frekuensi alami, dan superposisi gelombang. Bunyi yang dihasilkan berkisar sedang hingga keras (±70-90 dB) dan semakin kuat saat dimainkan dalam ansambel (UNESCO ICH, 2010; Kunst, 1973).</p>
                 `;
-                document.querySelector('#card-2 .card-title').innerText = 'Angklung dan Resonansi';
+                document.querySelector('#card-2 .card-title').innerText = 'Angklung: Proportional reasoning';
                 desc2HTML = `
-                    <p>Dalam pertunjukan seni, siswa A memainkan angklung A dan siswa B memainkan angklung B. Angklung menghasilkan bunyi karena getaran tabung bambu dan resonansi udara di dalamnya. Secara fisika, tabung angklung mirip pipa organa tertutup.</p>
+                    <img src="https://raw.githubusercontent.com/yursunrise25-coder/MEDIAAROV1/6d5c189745d78f0d32c2c021fd16b4d4d02b77b3/B.2%20ANGKLUNG.png" alt="Angklung" style="width: 100%; border-radius: 12px; margin-bottom: 12px;">
+                    <p>Dalam sebuah pertunjukan seni di sekolah, siswa A memainkan angklung A, sedangkan siswa B memainkan angklung B. Angklung merupakan alat musik dari bambu yang menghasilkan bunyi karena getaran tabung bambu dan resonansi udara di dalamnya. Dalam fisika, bunyi pada tabung angklung dapat dimodelkan seperti pipa organa tertutup (satu ujung tertutup).</p>
                     <p>Seorang siswa menebak:</p>
                     <blockquote>“Frekuensi nada dasar A lebih kecil daripada angklung B”</blockquote>
                 `;
-                card3Title = 'Frekuensi Angklung A dan B';
+                card3Title = 'Angklung Tier 1: Proportional Reasoning, Memahami Hubungan Berbanding Terbalik';
                 card3HTML = `
+                    <img src="https://raw.githubusercontent.com/yursunrise25-coder/MEDIAAROV1/6d5c189745d78f0d32c2c021fd16b4d4d02b77b3/B.2%20ANGKLUNG.png" alt="Angklung Tier 1" style="width: 100%; border-radius: 12px; margin-bottom: 12px;">
                     <p>Perbandingan frekuensi nada dasar angklung A dan B (fa : fb) adalah …</p>
                 `;
                 card3Options = ['A. 3:4', 'B. 4:3', 'C. 1:1', 'D. 2:1', 'E. 1:2'];
                 card3Correct = 0;
-                card4Title = 'Pernyataan Siswa';
+                card4Title = 'Angklung Tier 2: Proportional Reasoning, Memahami Hubungan Berbanding Terbalik';
                 card4HTML = `
+                    <img src="https://raw.githubusercontent.com/yursunrise25-coder/MEDIAAROV1/6d5c189745d78f0d32c2c021fd16b4d4d02b77b3/B.2%20ANGKLUNG.png" alt="Angklung Tier 2" style="width: 100%; border-radius: 12px; margin-bottom: 12px;">
                     <p>Pernyataan siswa tersebut adalah …</p>
                 `;
                 card4Options = [
-                    'A. benar, frekuensi berbanding terbalik dengan panjang kolom udara',
-                    'B. benar, panjang tabung menentukan amplitudo bunyi',
-                    'C. salah, frekuensi berbanding lurus dengan panjang kolom udara',
-                    'D. salah, jumlah tabung menentukan frekuensi',
-                    'E. salah, massa bambu menentukan frekuensi'
+                    'A. benar, karena frekuensi nada dasar berbanding terbalik dengan panjang kolom udara',
+                    'B. benar, karena panjang tabung menentukan amplitudo bunyi',
+                    'C. salah, karena frekuensi berbanding lurus dengan panjang kolom udara',
+                    'D. salah, karena jumlah tabung menentukan frekuensi',
+                    'E. salah, karena massa bambu menentukan frekuensi'
                 ];
                 card4Correct = 0;
             } else {
