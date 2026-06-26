@@ -3515,22 +3515,22 @@
             <div class="quiz-header">Kartu Angklung</div>
             <div class="cards-container">
                 <div class="card description-card" id="card-1">
-                    <div class="card-title">Deskripsi Soal</div>
+                    <div class="card-title"></div>
                     <div class="card-content" id="desc-1"></div>
                 </div>
                 <div class="card description-card" id="card-2">
-                    <div class="card-title">Deskripsi Soal</div>
+                    <div class="card-title"></div>
                     <div class="card-content" id="desc-2"></div>
                 </div>
                 <div class="card question-card" id="card-3">
-                    <div class="card-title">Soal 1</div>
+                    <div class="card-title"></div>
                     <div class="question-scroll-area">
                         <div class="card-content" id="question-card-3"></div>
                         <div class="quiz-options" id="options-3"></div>
                     </div>
                 </div>
                 <div class="card question-card" id="card-4">
-                    <div class="card-title">Soal 2</div>
+                    <div class="card-title"></div>
                     <div class="question-scroll-area">
                         <div class="card-content" id="question-card-4"></div>
                         <div class="quiz-options" id="options-4"></div>
@@ -4694,47 +4694,31 @@
 
             let desc1HTML = '';
             let desc2HTML = '';
-            let card3Title = 'Soal 1';
-            let card4Title = 'Soal 2';
+            let card3Title = '';
+            let card4Title = '';
             let card3HTML = '';
             let card4HTML = '';
-            let card3Options = quiz1.a;
-            let card3Correct = quiz1.correct;
-            let card4Options = quiz2.a;
-            let card4Correct = quiz2.correct;
+            let card3Options = [];
+            let card3Correct = 0;
+            let card4Options = [];
+            let card4Correct = 0;
 
             if (state.idx === 1) {
-                document.querySelector('#card-1 .card-title').innerText = 'Angklung';
-                desc1HTML = `
-                    <p>Angklung adalah alat musik bambu yang digoyang untuk membuat tabung bambu bergetar dan menghasilkan bunyi. Getaran ini memicu resonansi udara di dalam tabung dan menghasilkan nada sesuai ukuran tabung. Angklung menunjukkan prinsip gelombang bunyi dan resonansi. Suaranya bisa sedang hingga keras saat dimainkan dalam ansambel.</p>
-                `;
-                document.querySelector('#card-2 .card-title').innerText = 'Angklung dan Resonansi';
-                desc2HTML = `
-                    <p>Dalam pertunjukan seni, siswa A memainkan angklung A dan siswa B memainkan angklung B. Angklung menghasilkan bunyi karena getaran tabung bambu dan resonansi udara di dalamnya. Secara fisika, tabung angklung mirip pipa organa tertutup.</p>
-                    <p>Seorang siswa menebak:</p>
-                    <blockquote>“Frekuensi nada dasar A lebih kecil daripada angklung B”</blockquote>
-                `;
-                card3Title = 'Frekuensi Angklung A dan B';
-                card3HTML = `
-                    <p>Perbandingan frekuensi nada dasar angklung A dan B (fa : fb) adalah …</p>
-                `;
-                card3Options = ['A. 3:4', 'B. 4:3', 'C. 1:1', 'D. 2:1', 'E. 1:2'];
+                document.querySelector('#card-1 .card-title').innerText = '';
+                desc1HTML = '';
+                document.querySelector('#card-2 .card-title').innerText = '';
+                desc2HTML = '';
+                card3Title = '';
+                card3HTML = '';
+                card3Options = [];
                 card3Correct = 0;
-                card4Title = 'Pernyataan Siswa';
-                card4HTML = `
-                    <p>Pernyataan siswa tersebut adalah …</p>
-                `;
-                card4Options = [
-                    'A. benar, frekuensi berbanding terbalik dengan panjang kolom udara',
-                    'B. benar, panjang tabung menentukan amplitudo bunyi',
-                    'C. salah, frekuensi berbanding lurus dengan panjang kolom udara',
-                    'D. salah, jumlah tabung menentukan frekuensi',
-                    'E. salah, massa bambu menentukan frekuensi'
-                ];
+                card4Title = '';
+                card4HTML = '';
+                card4Options = [];
                 card4Correct = 0;
             } else {
-                document.querySelector('#card-1 .card-title').innerText = 'Deskripsi Soal';
-                document.querySelector('#card-2 .card-title').innerText = 'Deskripsi Soal';
+                document.querySelector('#card-1 .card-title').innerText = '';
+                document.querySelector('#card-2 .card-title').innerText = '';
             }
 
             // Set card 3 and 4 titles
