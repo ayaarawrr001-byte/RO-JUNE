@@ -1401,13 +1401,13 @@
         .cards-container {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            grid-auto-rows: minmax(0, 1fr);
+            grid-auto-rows: auto;
             gap: 12px;
             width: 100%;
             flex: 1;
             min-height: 0;
             align-items: stretch;
-            height: 100%;
+            height: auto;
         }
 
         .card {
@@ -1422,7 +1422,7 @@
             flex-direction: column;
             justify-content: flex-start;
             gap: 12px;
-            height: 100%;
+            height: auto;
             min-height: 0;
             min-width: 0;
             word-wrap: break-word;
