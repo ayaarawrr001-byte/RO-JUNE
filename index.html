@@ -452,10 +452,9 @@
 
         /* Screen Overlay */
         .screen-overlay {
-            position: fixed;
-            inset: 0;
-            background: url('https://raw.githubusercontent.com/wangja363-design/ro-juni/e388199f58453ecd66b9ba7e0ab934f9dcf9e990/mini%20game%20(2).png') center/cover no-repeat;
-            background-color: var(--soft-cloud-blue);
+            position: relative;
+            inset: auto;
+            background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -472,6 +471,13 @@
 
         .hidden {
             display: none !important;
+        }
+
+        .screen-overlay > .content-card {
+            position: relative;
+            z-index: 101;
+            width: min(100%, 1200px);
+            margin: auto;
         }
 
         .content-card {
